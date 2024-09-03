@@ -191,26 +191,31 @@ let modulo = 10 % 3; // 1
 JavaScript proporciona el objeto `Math` para realizar operaciones matemáticas avanzadas:
 
 `Math.PI():`Devuelve el valor de π (aproximadamente 3.14159).
+
 ```js
 let pi = Math.PI; // 3.141592653589793
 ```
 
 `Math.ceil():` Redondea un número hacia arriba al entero más cercano.
+
 ```js
 let redondeoArriba = Math.ceil(4.2); // 5
 ```
 
 `Math.floor():` Redondear un numero hacia abajo.
+
 ```js
 let redondeoAbajo = Math.floor(4.7); // 4
 ```
 
 `Math.sqrt(number):` Sacar la raiz cuadrada de un numero
+
 ```js
 let raizCuadrada = Math.sqrt(16); // 4
 ```
 
 `Math.abs(number):` Devuelve el valor absoluto de un número (sin signo).
+
 ```js
 let valorAbsoluto = Math.abs(-5); // 5
 ```
@@ -218,16 +223,19 @@ let valorAbsoluto = Math.abs(-5); // 5
 `Math.pow(number, exponent):` Elevar un numero.
 
 `Math.min(a, b, c, ...)`: Devuelve el valor mínimo de una lista de números.
+
 ```js
 let minimo = Math.min(3, 5, 1, 9); // 1
 ```
 
 `Math.max(a, b, c, ...)`: Devuelve el valor máximo de una lista de números.
+
 ```js
 let maximo = Math.max(3, 5, 1, 9); // 9
 ```
 
 `Math.random():` Genera un número aleatorio entre 0 (inclusive) y 1 (exclusivo).
+
 ```js
 let aleatorio = Math.random(); // Ejemplo: 0.673141
 ```
@@ -235,15 +243,60 @@ let aleatorio = Math.random(); // Ejemplo: 0.673141
 ### Métodos de Conversión y Validación de Números
 
 `Number.parseInt(string):` Convierte un string en un número entero, ignorando los caracteres no numéricos al final.
+
 ```js
 let entero = Number.parseInt("42px"); // 42
 ```
+
 `Number.parseFloat(string):` Convierte un string en un número de punto flotante (decimal).
+
 ```js
 let flotante = Number.parseFloat("3.14em"); // 3.14
 ```
+
 `Number.isInteger(value):` Verifica si un valor es un número entero.
+
 ```js
 let esEntero = Number.isInteger(4); // true
 let noEsEntero = Number.isInteger(4.5); // false
+```
+
+## Operadores
+
+Los operadores de comparación se utilizan para evaluar relaciones entre valores y devolver un resultado booleano (true o false).
+
+`< (menor que):` Compara si el valor de la izquierda es menor que el de la derecha.
+
+```js
+let esMenor = 5 < 10; // true
+```
+
+`> (mayor que):` Compara si el valor de la izquierda es mayor que el de la derecha.
+
+```js
+let esMayor = 10 > 5; // true
+```
+
+`== (igualdad debil):` Compara si dos valores son iguales después de realizar conversiones de tipo (coerción). Este operador no distingue entre tipos de datos.
+
+```js
+let esIgual = 5 == "5"; // true
+```
+
+`=== (igualdad estricta):` Compara si dos valores son estrictamente iguales, tanto en valor como en tipo de dato. No realiza conversiones de tipo.
+
+```js
+let esEstrictoIgual = 5 === "5"; // false
+```
+
+`!= (desigualdad debil):` Compara si dos valores son diferentes, realizando conversiones de tipo. Este operador no distingue entre tipos de datos.
+
+```js
+let esDiferente = 5 != "5"; // false
+```
+
+`!== (desigualdad estricta):` Compara si dos valores son diferentes, tanto en valor como en tipo de dato. No realiza conversiones de tipo.
+
+```js
+let esEstrictoDiferente = 5 !== "5"; // true
 ```
