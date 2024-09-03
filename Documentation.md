@@ -313,3 +313,166 @@ let esFalso = false;
 ```
 
 - Comparación de Booleans: Los valores booleanos se utilizan en comparaciones para evaluar expresiones y determinar si una condición es verdadera o falsa.
+
+## Objetos
+
+Los objetos son una estructura fundamental en JavaScript que permite almacenar múltiples valores en una única entidad. Estos valores se representan como pares clave-valor.
+
+### Creacion de objetos
+
+Existen dos formas principales de crear objetos en JavaScript:
+
+- `Object Literal:` Es la forma más común y sencilla de crear un objeto.
+
+```js
+const producto = {
+  nombre: "Mauricio",
+  edad: 19,
+  apellido: "Chacon",
+};
+```
+
+- `Object Constructor:` Se utiliza para crear instancias de un objeto mediante una función constructora.
+
+```js
+function Producto(nombre, edad, apellido) {
+  this.nombre = nombre;
+  this.edad = edad;
+  this.apellido = apellido;
+}
+
+const producto = new Producto("Mauricio", 19, "Chacon");
+```
+
+### Obtención de Propiedades de Objetos
+
+Para acceder a los valores de las propiedades de un objeto, se utilizan dos métodos principales:
+
+- `Notación de punto (.):` Es la forma más común de acceder a las propiedades.
+
+```js
+console.log(producto.nombre);
+```
+
+- `Notación de corchetes (['']):` Se utiliza principalmente cuando el nombre de la propiedad es dinámico o contiene caracteres especiales.
+
+```js
+console.log(producto.['nombre']);
+```
+
+### Agregar y eliminar objetos
+
+- `Agregar Propiedades:` Puedes agregar nuevas propiedades a un objeto simplemente asignándolas.
+
+```js
+producto.imagen = "imagen.jpg";
+console.log(producto.imagen); // imagen.jpg
+```
+
+- `Eliminar Propiedades:` Utiliza la palabra reservada delete para eliminar una propiedad de un objeto.
+
+```js
+delete producto.edad;
+console.log(producto.edad); // undefined
+```
+
+### Object destructuring
+
+La desestructuración de objetos permite extraer propiedades en variables individuales de manera más concisa.
+
+```js
+const { nombre, edad, apellido } = producto;
+console.log(edad); // 19
+```
+
+### Objetos anidados
+
+Es posible tener objetos dentro de otros objetos, lo que permite organizar mejor los datos.
+
+```js
+const producto = {
+  nombre: "Mauricio",
+  edad: 19,
+  apellido: "Chacon",
+  hobbies: {
+    ocio: "videojuegos",
+    deportes: "futbol",
+  },
+};
+
+console.log(producto.hobbies.ocio); // videojuegos
+```
+
+#### Desestructuración de Objetos Anidados:
+
+```js
+const {
+  hobbies: { ocio },
+} = producto;
+console.log(ocio); // videojuegos
+```
+
+### Métodos de Objetos
+
+JavaScript proporciona varios métodos útiles para manipular objetos:
+
+`Object.freeze(obj):` Congela el objeto, impidiendo cualquier modificación.
+
+```js
+Object.freeze(producto);
+```
+
+`Object.seal(obj):` Sella el objeto, permitiendo solo la modificación de propiedades existentes, pero no agregar o eliminar propiedades.
+
+```js
+Object.seal(producto);
+```
+
+`Object.assign(obj1, obj2):` Combina las propiedades de dos objetos en uno nuevo.
+
+```js
+const producto = {
+    nombre: 'Monitor 20 Pulgadas',
+    precio: 300,
+    disponible: true
+}
+
+const medidas = {
+    peso: '1kg',
+    medida: '1m'
+}
+
+console.log(producto);
+console.log(medidas)
+
+const resultado = Object.assign(producto,medidas);
+
+`Spread Operator`: Una alternativa moderna a `Object.assign` para combinar objetos.
+// Spread Operator o Rest Operator
+const resultado2 = { ...producto, ...medidas}
+```
+
+`Object.keys(obj):` Retorna un array que contiene todas las claves (propiedades) de un objeto.
+
+```js
+const producto = {
+  nombre: "Mauricio",
+  edad: 19,
+  apellido: "Chacon",
+};
+
+console.log(Object.keys(producto)); // ["nombre", "edad", "apellido"]
+```
+
+`Object.values(obj):` Retorna un array con todos los valores de las propiedades de un objeto.
+
+```js
+console.log(Object.values(producto)); // ["Mauricio", 19, "Chacon"]
+```
+
+`Object.entries(obj):` Retorna un array de arrays, donde cada sub-array contiene un par clave-valor del objeto. Es útil para iterar sobre las propiedades y sus valores.
+
+```js
+console.log(Object.entries(producto));
+// [["nombre", "Mauricio"], ["edad", 19], ["apellido", "Chacon"]]
+```
