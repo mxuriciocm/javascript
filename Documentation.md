@@ -300,3 +300,16 @@ let esDiferente = 5 != "5"; // false
 ```js
 let esEstrictoDiferente = 5 !== "5"; // true
 ```
+
+## Booleans
+
+Un valor booleano es un tipo de dato en JavaScript que solo puede tener dos posibles valores: true o false. Los booleans se utilizan comúnmente para representar estados binarios (encendido/apagado, verdadero/falso) y para el control de flujo en condiciones.
+
+- Creación de Booleans: Puedes crear booleans directamente asignando los valores true o false a una variable.
+
+```js
+let esVerdadero = true;
+let esFalso = false;
+```
+
+- Comparación de Booleans: Los valores booleanos se utilizan en comparaciones para evaluar expresiones y determinar si una condición es verdadera o falsa.
