@@ -63,3 +63,73 @@ let longitud = texto.length; // 10
 ```
 
 `includes(string):` Devuelve un valor booleano (true o false) que indica si un string contiene el valor especificado.
+```js
+let frase = 'Aprender JavaScript es divertido';
+let contienePalabra = frase.includes('JavaScript'); // true
+```
+
+`trimStart()`: Elimina los espacios en blanco al inicio del string.
+```js
+let texto = "   Hola";
+console.log(texto.trimStart()); // "Hola"
+```
+
+`trimEnd()`: Elimina los espacios en blanco al final del string.
+```js
+let texto = "Hola   ";
+console.log(texto.trimEnd()); // "Hola"
+```
+
+`trim()`: Elimina los espacios en blanco tanto al inicio como al final del string.
+```js
+let texto = "   Hola   ";
+console.log(texto.trim()); // "Hola"
+```
+
+`replace(searchValue, newValue):` Reemplaza una parte del string por otra..
+```js
+let texto = "Hola Mundo";
+console.log(texto.replace("Mundo", "Amigo")); // "Hola Amigo"
+```
+
+`slice(start, end):` Extrae una sección del string y devuelve una nueva cadena sin modificar la original.
+```js
+let texto = "Hola Mundo";
+console.log(texto.slice(0, 4)); // "Hola"
+```
+
+`substring(start, end):` Similar a slice(), pero intercambia los valores si el índice inicial es mayor que el final, evitando errores. 
+```js
+let texto = "Hola Mundo";
+console.log(texto.substring(4, 0)); // "Hola"
+```
+
+`repeat(count):` Repite el string un número específico de veces.
+```js
+let texto = "Hola";
+console.log(texto.repeat(3)); // "HolaHolaHola"
+```
+
+`split(separator):` Divide un string en un array de substrings usando un separador especificado.
+```js
+let texto = "Hola Mundo";
+console.log(texto.split(" ")); // ["Hola", "Mundo"]
+```
+
+`toLowerCase():` Convierte todos los caracteres del string a minúsculas..
+```js
+let texto = "Hola Mundo";
+console.log(texto.toLowerCase()); // "hola mundo"
+```
+
+`toUpperCase():` Convierte todos los caracteres del string a mayúsculas.
+```js
+let texto = "Hola Mundo";
+console.log(texto.toUpperCase()); // "HOLA MUNDO"
+```
+
+`toString():` Convierte un valor en un string.
+```js
+let numero = 123;
+console.log(numero.toString()); // "123"
+```
