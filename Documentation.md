@@ -476,3 +476,95 @@ console.log(Object.values(producto)); // ["Mauricio", 19, "Chacon"]
 console.log(Object.entries(producto));
 // [["nombre", "Mauricio"], ["edad", 19], ["apellido", "Chacon"]]
 ```
+
+## Arreglos
+
+Los arreglos en JavaScript son estructuras de datos que permiten almacenar múltiples valores en una sola variable. Estos valores pueden ser de cualquier tipo, incluyendo otros arreglos.
+
+### Creación de Arreglos
+
+Existen dos formas principales de crear arreglos en JavaScript:
+
+- `Notación de corchetes ([]):` Es la forma más común y sencilla de crear un arreglo.
+
+```js
+const numeros = [10, 20, 30, 40, 50];
+```
+
+- `new Array():` Otra manera de crear un arreglo, aunque es menos utilizada.
+
+```js
+const numeros = new Array(10, 20, 30, 40, 50);
+```
+
+### Obtención de elementos de un arreglo
+
+Para acceder a un elemento específico de un arreglo, se utiliza su índice entre corchetes []. Los índices comienzan en 0, lo que significa que el primer elemento está en la posición 0, el segundo en la posición 1, y así sucesivamente.
+
+- `Notación de corchetes ([]):` Para acceder a los elementos del arreglo, se utiliza la posicion que va entre corchetes [].
+
+```js
+const numeros = [10, 20, 30, 40, 50];
+console.log(numeros[1]); //20
+```
+
+### Métodos de Arreglos
+
+`push():` Agrega un elemento al final del arreglo.
+
+```js
+numeros.push(60);
+```
+
+`unshift():` Agrega un elemento al inicio del arreglo.
+
+```js
+numeros.unshift(0);
+```
+
+`pop():` Elimina el último elemento del arreglo.
+
+```js
+numeros.pop();
+```
+
+`shift():` Elimina el primer elemento del arreglo.
+
+```js
+numeros.shift();
+```
+
+`slice(start, end):` Crea un nuevo arreglo copiando una porción del arreglo original desde la posición start hasta end (sin incluir end).
+
+```js
+const subArray = numeros.slice(1, 3); // [20, 30]
+```
+
+`forEach():` Itera sobre cada elemento del arreglo y ejecuta una función para cada uno de ellos.
+
+```js
+numeros.forEach(function (numero) {
+  console.log(numero);
+});
+```
+
+`map():` Similar a forEach, pero además de iterar sobre el arreglo, devuelve un nuevo arreglo con los resultados de la función aplicada a cada elemento.
+
+```js
+const numerosDoblados = numeros.map(function (numero) {
+  return numero * 2;
+});
+console.log(numerosDoblados); // [20, 40, 60, 80, 100]
+```
+
+### Destructuring de Arrays
+
+El destructuring permite extraer valores de un arreglo y asignarlos a variables de manera sencilla.
+
+```js
+const numeros = [10, 20, 30, 40, 50];
+
+const [primero, segundo, tercero] = numeros;
+
+console.log(tercero);
+```
