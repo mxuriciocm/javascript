@@ -568,3 +568,69 @@ const [primero, segundo, tercero] = numeros;
 
 console.log(tercero);
 ```
+
+## Funciones
+
+Las funciones en JavaScript son bloques de código reutilizables diseñados para realizar una tarea específica. Puedes definir funciones de diferentes maneras y utilizarlas para ejecutar código en distintos contextos.
+
+### Creación de Funciones
+
+Existen dos formas principales de definir funciones en JavaScript:
+
+`Declaración de Función (Function declaration):` Es la forma más común de definir una función. Se puede llamar a la función antes de su declaración debido al hoisting.
+
+```js
+function saludar(nombre) {
+  console.log("Hola, " + nombre);
+}
+```
+
+`Expresión de Función (Function expression):`Se define como una parte de una expresión y no es elevada. Debe ser definida antes de su uso.
+
+```js
+const multiplicar = function (a, b) {
+  return a * b;
+};
+```
+
+### Llamada a funciones
+
+Para ejecutar una función, se usa su nombre seguido de paréntesis. Si la función tiene parámetros, se deben pasar dentro de los paréntesis.
+
+```js
+saludar("Ana"); // Salida: Hola, Ana
+const resultado = multiplicar(2, 3);
+console.log(resultado); // Salida: 6
+```
+
+### Métodos vs Funciones
+
+`Función:` Es un bloque de código que se puede definir en cualquier parte del programa y se invoca usando su nombre seguido de paréntesis.
+
+```js
+function miFuncion() {
+  console.log("Esto es una función");
+}
+miFuncion(); // Salida: Esto es una función
+```
+
+`Método:` Es una función asociada a un objeto. Se llama utilizando el nombre del objeto seguido de un punto y el nombre del método seguido de paréntesis.
+
+```js
+const persona = {
+  nombre: "Ana",
+  saludar: function () {
+    console.log("Hola, soy " + this.nombre);
+  },
+};
+persona.saludar(); // Salida: Hola, soy Ana
+```
+
+### Funciones de Flecha (Arrow Functions)
+
+Las funciones de flecha proporcionan una sintaxis más concisa para escribir funciones. No tienen su propio this, sino que heredan el this del contexto en el que se crean.
+
+```js
+const suma = (a, b) => a + b;
+console.log(suma(5, 3)); // Salida: 8
+```
