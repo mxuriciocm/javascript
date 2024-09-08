@@ -634,3 +634,108 @@ Las funciones de flecha proporcionan una sintaxis más concisa para escribir fun
 const suma = (a, b) => a + b;
 console.log(suma(5, 3)); // Salida: 8
 ```
+
+## Estructuras de Control
+
+### Operador if
+
+El operador `if` se utiliza para ejecutar un bloque de código solo si una condición es verdadera. Si la condición es falsa, el bloque no se ejecuta.
+
+```js
+let edad = 18;
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+}
+```
+
+### Operador estricto ===
+
+El operador de comparación estricta `===` evalúa tanto el valor como el tipo de dato de las variables. A diferencia del operador `==`, que solo compara los valores, el operador `===` también se asegura de que los tipos sean idénticos.
+
+```js
+console.log(5 === "5"); // false (número vs string)
+console.log(5 === 5); // true (ambos son números)
+```
+
+### Operadores > (mayor que) y < (menor que)
+
+Estos operadores comparan dos valores y devuelven true o false dependiendo de la relación entre ellos. El operador `>` devuelve true si el valor a la izquierda es mayor que el de la derecha. El operador `<` devuelve true si es menor.
+
+```js
+console.log(10 > 5); // true
+console.log(3 < 7); // true
+```
+
+### Operador else if
+
+El operador `else if` se utiliza cuando quieres evaluar múltiples condiciones. Si la condición en el if original es falsa, el programa comprobará las condiciones adicionales con `else if`.
+
+```js
+let nota = 85;
+
+if (nota >= 90) {
+  console.log("A");
+} else if (nota >= 80) {
+  console.log("B");
+} else {
+  console.log("C");
+}
+```
+
+### Switch case
+
+La estructura `switch` evalúa una expresión y ejecuta el bloque de código correspondiente al primer case que coincida con el valor de la expresión. Si ningún case coincide, se puede ejecutar un bloque default.
+
+```js
+let dia = 3;
+
+switch (dia) {
+  case 1:
+    console.log("Lunes");
+    break;
+  case 2:
+    console.log("Martes");
+    break;
+  case 3:
+    console.log("Miércoles");
+    break;
+  default:
+    console.log("Día no válido");
+}
+```
+
+### Operador && (AND)
+
+El operador `&&` evalúa dos o más condiciones y devuelve true solo si todas las condiciones son verdaderas.
+
+```js
+let edad = 25;
+let tieneLicencia = true;
+
+if (edad >= 18 && tieneLicencia) {
+  console.log("Puedes conducir");
+}
+```
+
+### Operador || (OR)
+
+El operador `||` devuelve true si al menos una de las condiciones es verdadera.
+
+```js
+let tienePermiso = false;
+let esAdministrador = true;
+
+if (tienePermiso || esAdministrador) {
+  console.log("Acceso permitido");
+}
+```
+
+### Operador ternario
+
+El operador ternario es una forma compacta de escribir una condición `if-else`. Tiene la sintaxis condición `?` valorSiVerdadero `:` valorSiFalso.
+
+```js
+let edad = 20;
+let mensaje = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
+console.log(mensaje); // "Eres mayor de edad"
+```
