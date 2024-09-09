@@ -1,3 +1,51 @@
+# Índice
+
+- [Variables](#variables)
+- [Strings](#strings)
+  - [Concatenar Strings](#concatenar-strings)
+  - [Métodos de Strings](#métodos-de-strings)
+- [Números](#números)
+  - [Operaciones con Números](#operaciones-con-números)
+  - [Objeto Math](#objeto-math)
+  - [Métodos de Conversión y Validación de Números](#métodos-de-conversión-y-validación-de-números)
+- [Operadores](#operadores)
+- [Booleans](#booleans)
+- [Objetos](#objetos)
+  - [Creación de Objetos](#creacion-de-objetos)
+  - [Obtención de Propiedades de Objetos](#obtención-de-propiedades-de-objetos)
+  - [Agregar y eliminar Objetos](#agregar-y-eliminar-objetos)
+  - [Object Destructuring](#object-destructuring)
+  - [Objetos Anidados](#objetos-anidados)
+  - [Desestructuración de Objetos Anidados](#desestructuración-de-objetos-anidados)
+  - [Métodos de Objetos](#métodos-de-objetos)
+- [Arreglos](#arreglos)
+  - [Creación de Arreglos](#creación-de-arreglos)
+  - [Obtención de elementos de un Arreglo](#obtención-de-elementos-de-un-arreglo)
+  - [Métodos de Arreglos](#métodos-de-arreglos)
+  - [Destructuring de Arreglos](#destructuring-de-arreglos)
+- [Funciones](#funciones)
+  - [Creación de Funciones](#creación-de-funciones)
+  - [Llamada a Funciones](#llamada-a-funciones)
+  - [Métodos vs Funciones](#métodos-vs-funciones)
+  - [Funciones de Flecha](#funciones-de-flecha-arrow-functions)
+- [Estructuras de Control](#estructuras-de-control)
+  - [Operador if](#operador-if)
+  - [Operador estricto ===](#operador-estricto-)
+  - [Operadores > y <](#operadores--mayor-que-y--menor-que)
+  - [Operador else if](#operador-else-if)
+  - [Operador switch case](#operador-switch-case)
+  - [Operador &&](#operador--and)
+  - [Operador ||](#operador--or)
+  - [Operador ternario](#operador-ternario)
+- [Iteradores](#iteradores)
+  - [Iterador for](#iterador-for)
+  - [Iterador break vs continue](#iterador-break-vs-continue)
+  - [Iterador while](#iterador-while)
+  - [Iterador do-while](#iterador-do-while)
+  - [Iterador forEach](#iterador-foreach)
+  - [Iterador forOf](#iterador-forof)
+  - [Iterador forIn](#iterador-forin)
+
 ## Variables
 
 En JavaScript hay 3 tipos de variables que se puede usar: `var`, `let` y `const`. Cada una tiene sus propias características y reglas de uso.
@@ -20,6 +68,8 @@ En JavaScript hay 3 tipos de variables que se puede usar: `var`, `let` y `const`
 - Reasignación: Una vez que se asigna un valor, no puede ser reasignado. Sin embargo, si la variable contiene un objeto o un array, las propiedades del objeto o los elementos del array pueden ser modificados.
 - Inicialización: Deben ser inicializadas al momento de su declaración; de lo contrario, se lanzará un error.
 
+---
+
 ## Strings
 
 En JavaScript, un string es una secuencia de caracteres utilizada para representar texto. Hay varias formas de crear un string:
@@ -27,6 +77,8 @@ En JavaScript, un string es una secuencia de caracteres utilizada para represent
 - Comillas simples ('')
 - Comillas dobles ("")
 - Template literals (`${}`) que permiten incluir expresiones y variables de manera más flexible.
+
+---
 
 ### Concatenar Strings
 
@@ -261,6 +313,8 @@ let esEntero = Number.isInteger(4); // true
 let noEsEntero = Number.isInteger(4.5); // false
 ```
 
+---
+
 ## Operadores
 
 Los operadores de comparación se utilizan para evaluar relaciones entre valores y devolver un resultado booleano (true o false).
@@ -301,6 +355,8 @@ let esDiferente = 5 != "5"; // false
 let esEstrictoDiferente = 5 !== "5"; // true
 ```
 
+---
+
 ## Booleans
 
 Un valor booleano es un tipo de dato en JavaScript que solo puede tener dos posibles valores: true o false. Los booleans se utilizan comúnmente para representar estados binarios (encendido/apagado, verdadero/falso) y para el control de flujo en condiciones.
@@ -314,11 +370,13 @@ let esFalso = false;
 
 - Comparación de Booleans: Los valores booleanos se utilizan en comparaciones para evaluar expresiones y determinar si una condición es verdadera o falsa.
 
+---
+
 ## Objetos
 
 Los objetos son una estructura fundamental en JavaScript que permite almacenar múltiples valores en una única entidad. Estos valores se representan como pares clave-valor.
 
-### Creacion de objetos
+### Creacion de Objetos
 
 Existen dos formas principales de crear objetos en JavaScript:
 
@@ -360,7 +418,7 @@ console.log(producto.nombre);
 console.log(producto.['nombre']);
 ```
 
-### Agregar y eliminar objetos
+### Agregar y eliminar Objetos
 
 - `Agregar Propiedades:` Puedes agregar nuevas propiedades a un objeto simplemente asignándolas.
 
@@ -376,7 +434,7 @@ delete producto.edad;
 console.log(producto.edad); // undefined
 ```
 
-### Object destructuring
+### Object Destructuring
 
 La desestructuración de objetos permite extraer propiedades en variables individuales de manera más concisa.
 
@@ -385,7 +443,7 @@ const { nombre, edad, apellido } = producto;
 console.log(edad); // 19
 ```
 
-### Objetos anidados
+### Objetos Anidados
 
 Es posible tener objetos dentro de otros objetos, lo que permite organizar mejor los datos.
 
@@ -403,7 +461,7 @@ const producto = {
 console.log(producto.hobbies.ocio); // videojuegos
 ```
 
-#### Desestructuración de Objetos Anidados:
+### Desestructuración de Objetos Anidados:
 
 ```js
 const {
@@ -477,6 +535,8 @@ console.log(Object.entries(producto));
 // [["nombre", "Mauricio"], ["edad", 19], ["apellido", "Chacon"]]
 ```
 
+---
+
 ## Arreglos
 
 Los arreglos en JavaScript son estructuras de datos que permiten almacenar múltiples valores en una sola variable. Estos valores pueden ser de cualquier tipo, incluyendo otros arreglos.
@@ -497,7 +557,7 @@ const numeros = [10, 20, 30, 40, 50];
 const numeros = new Array(10, 20, 30, 40, 50);
 ```
 
-### Obtención de elementos de un arreglo
+### Obtención de elementos de un Arreglo
 
 Para acceder a un elemento específico de un arreglo, se utiliza su índice entre corchetes []. Los índices comienzan en 0, lo que significa que el primer elemento está en la posición 0, el segundo en la posición 1, y así sucesivamente.
 
@@ -557,7 +617,7 @@ const numerosDoblados = numeros.map(function (numero) {
 console.log(numerosDoblados); // [20, 40, 60, 80, 100]
 ```
 
-### Destructuring de Arrays
+### Destructuring de Arreglos
 
 El destructuring permite extraer valores de un arreglo y asignarlos a variables de manera sencilla.
 
@@ -568,6 +628,8 @@ const [primero, segundo, tercero] = numeros;
 
 console.log(tercero);
 ```
+
+---
 
 ## Funciones
 
@@ -682,7 +744,7 @@ if (nota >= 90) {
 }
 ```
 
-### Switch case
+### Operador Switch case
 
 La estructura `switch` evalúa una expresión y ejecuta el bloque de código correspondiente al primer case que coincida con el valor de la expresión. Si ningún case coincide, se puede ejecutar un bloque default.
 
@@ -740,11 +802,13 @@ let mensaje = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
 console.log(mensaje); // "Eres mayor de edad"
 ```
 
+---
+
 ## Iteradores
 
 Los iteradores en JavaScript permiten recorrer o iterar sobre elementos de colecciones como arrays, objetos, y strings. A continuación se detallan algunos de los operadores y métodos más comunes para realizar iteraciones.
 
-### Operador for
+### Iterador for
 
 El operador `for` permite ejecutar un bloque de código un número específico de veces. Es útil cuando se conoce el número de iteraciones de antemano.
 
@@ -754,7 +818,7 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-### Operador break vs continue
+### Iterador break vs continue
 
 - `break`: Termina el ciclo inmediatamente.
 - `continue`: Salta la iteración actual y continúa con la siguiente.
@@ -773,7 +837,7 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-### Operaodr while
+### Iterador while
 
 El ciclo `while` se ejecuta mientras una condición sea verdadera. Es útil cuando no se sabe cuántas iteraciones serán necesarias.
 
@@ -785,7 +849,7 @@ while (i < 5) {
 }
 ```
 
-### Operador do-while
+### Iterador do-while
 
 El ciclo `do-while` es similar al while, pero siempre ejecuta el bloque de código al menos una vez, ya que evalúa la condición al final de cada iteración.
 
@@ -829,3 +893,5 @@ for (const key in objeto) {
   console.log(key, objeto[key]);
 }
 ```
+
+---
