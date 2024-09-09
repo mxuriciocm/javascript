@@ -739,3 +739,93 @@ let edad = 20;
 let mensaje = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
 console.log(mensaje); // "Eres mayor de edad"
 ```
+
+## Iteradores
+
+Los iteradores en JavaScript permiten recorrer o iterar sobre elementos de colecciones como arrays, objetos, y strings. A continuación se detallan algunos de los operadores y métodos más comunes para realizar iteraciones.
+
+### Operador for
+
+El operador `for` permite ejecutar un bloque de código un número específico de veces. Es útil cuando se conoce el número de iteraciones de antemano.
+
+```js
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+```
+
+### Operador break vs continue
+
+- `break`: Termina el ciclo inmediatamente.
+- `continue`: Salta la iteración actual y continúa con la siguiente.
+
+```js
+for (let i = 0; i < 5; i++) {
+  if (i === 3) break; // Sale del ciclo cuando i es 3
+  console.log(i);
+}
+```
+
+```js
+for (let i = 0; i < 5; i++) {
+  if (i === 3) continue; // Salta cuando i es 3
+  console.log(i);
+}
+```
+
+### Operaodr while
+
+El ciclo `while` se ejecuta mientras una condición sea verdadera. Es útil cuando no se sabe cuántas iteraciones serán necesarias.
+
+```js
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+```
+
+### Operador do-while
+
+El ciclo `do-while` es similar al while, pero siempre ejecuta el bloque de código al menos una vez, ya que evalúa la condición al final de cada iteración.
+
+```js
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+```
+
+### Iterador forEach
+
+El método `forEach` permite ejecutar una función para cada elemento de un array. No es posible usar break o continue dentro de forEach.
+
+```js
+const array = [1, 2, 3, 4, 5];
+array.forEach((element) => {
+  console.log(element);
+});
+```
+
+### Iterador forOf
+
+El iterador `for...of` permite recorrer arrays, strings, y otros objetos iterables. Itera sobre los valores de los elementos iterables.
+
+```js
+const array = [1, 2, 3, 4, 5];
+for (const value of array) {
+  console.log(value);
+}
+```
+
+### Iterador forIn
+
+El iterador `for...in` recorre las propiedades enumerables de un objeto, incluidas las propiedades heredadas.
+
+```js
+const objeto = { a: 1, b: 2, c: 3 };
+for (const key in objeto) {
+  console.log(key, objeto[key]);
+}
+```
