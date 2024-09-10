@@ -617,6 +617,82 @@ const numerosDoblados = numeros.map(function (numero) {
 console.log(numerosDoblados); // [20, 40, 60, 80, 100]
 ```
 
+`includes():` Devuelve true si el arreglo contiene el elemento especificado, de lo contrario, devuelve false.
+
+```js
+const existe = numeros.includes(30);
+console.log(existe); // true
+```
+
+`some():` Devuelve true si al menos un elemento del arreglo cumple con una condición específica definida en una función.
+
+```js
+const tieneMayorQueCincuenta = numeros.some(function (numero) {
+  return numero > 50;
+});
+console.log(tieneMayorQueCincuenta); // false
+```
+
+`findIndex():` Devuelve el índice del primer elemento que cumple con una condición definida en una función. Si no encuentra ninguno, devuelve -1.
+
+```js
+const indice = numeros.findIndex(function (numero) {
+  return numero === 30;
+});
+console.log(indice); // 2
+```
+
+`reduce():` Aplica una función a un acumulador y a cada valor del arreglo (de izquierda a derecha) para reducirlo a un solo valor.
+
+```js
+const sumaTotal = numeros.reduce(function (acumulador, numero) {
+  return acumulador + numero;
+}, 0);
+console.log(sumaTotal); // 150
+```
+
+`filter():` Crea un nuevo arreglo con todos los elementos que cumplen con una condición definida en una función.
+
+```js
+const numerosMayoresQueTreinta = numeros.filter(function (numero) {
+  return numero > 30;
+});
+console.log(numerosMayoresQueTreinta); // [40, 50]
+```
+
+`find():` Devuelve el primer elemento que cumple con una condición definida en una función. Si no encuentra ninguno, devuelve undefined.
+
+```js
+const primerNumeroMayorQueTreinta = numeros.find(function (numero) {
+  return numero > 30;
+});
+console.log(primerNumeroMayorQueTreinta); // 40
+```
+
+`every():` Devuelve true si todos los elementos del arreglo cumplen con una condición definida en una función.
+
+```js
+const todosMenoresQueCien = numeros.every(function (numero) {
+  return numero < 100;
+});
+console.log(todosMenoresQueCien); // true
+```
+
+`concat():` Combina dos o más arreglos y devuelve un nuevo arreglo.
+
+```js
+const otrosNumeros = [60, 70];
+const combinado = numeros.concat(otrosNumeros);
+console.log(combinado); // [10, 20, 30, 40, 50, 60, 70]
+```
+
+`...: (spread operator):` Desempaqueta los elementos de un arreglo (o cualquier iterable) en otro contexto, como dentro de un nuevo arreglo o función.
+
+```js
+const copia = [...numeros];
+console.log(copia); // [10, 20, 30, 40, 50]
+```
+
 ### Destructuring de Arreglos
 
 El destructuring permite extraer valores de un arreglo y asignarlos a variables de manera sencilla.
