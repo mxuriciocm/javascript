@@ -971,3 +971,11 @@ for (const key in objeto) {
 ```
 
 ---
+
+## DOM (Document Object Model)
+Proporciona una representación estructurada del documento y define cómo los programas pueden acceder y manipular el contenido, la estructura y los estilos del documento. Todos estos metodos utilizan el prefijo document para acceder al DOM.
+
+`getElementsByClassName():` Este método permite seleccionar elementos del DOM por su clase CSS. Retorna una lista de todos los elementos que tienen la clase especificada. Aunque útil, su uso también ha disminuido con la aparición de métodos más avanzados.
+`getElementById():` Este método permite seleccionar un elemento del DOM por su ID único. Aunque todavía es válido, su uso ha disminuido con la llegada de métodos más versátiles.
+`querySelector():` Este método es una forma más moderna y flexible de seleccionar elementos. Utiliza un selector de CSS para especificar el elemento deseado, ya sea por su clase, ID u otro atributo. En caso de haber múltiples elementos que cumplan con el selector, devolverá el primero que encuentre.
+`querySelectorAll():` Similar a querySelector, pero devuelve todos los elementos que coinciden con el selector CSS especificado en el documento en forma de NodeList. Esto significa que mostrará todos los elementos que cumplan con la condición del selector.
