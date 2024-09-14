@@ -5,7 +5,6 @@
   - [let](#let)
   - [const](#const)
 - [Strings](#strings)
-
   - [Concatenar Strings](#concatenar-strings)
     - [concat](#concatstring)
     - [Operador +](#operador-)
@@ -24,7 +23,6 @@
     - [toLowerCase()](#tolowercase)
     - [toUpperCase()](#touppercase)
     - [toString()](#tostring)
-
 - [Números](#números)
   - [Operaciones con Números](#operaciones-con-números)
   - [Objeto Math](#objeto-math)
@@ -108,6 +106,7 @@
     - [createElement](#createelement)
     - [appendChild](#appendchild)
     - [insertBefore](#insertbefore)
+- []()
 
 ## Variables
 
@@ -666,27 +665,31 @@ console.log(numeros[1]); //20
 ### Métodos de Arreglos
 
 #### push()
- Agrega un elemento al final del arreglo.
+
+Agrega un elemento al final del arreglo.
 
 ```js
 numeros.push(60);
 ```
 
 #### unshift()
- Agrega un elemento al inicio del arreglo.
+
+Agrega un elemento al inicio del arreglo.
 
 ```js
 numeros.unshift(0);
 ```
 
-#### pop() 
+#### pop()
+
 Elimina el último elemento del arreglo.
 
 ```js
 numeros.pop();
 ```
 
-#### shift() 
+#### shift()
+
 Elimina el primer elemento del arreglo.
 
 ```js
@@ -694,14 +697,16 @@ numeros.shift();
 ```
 
 #### slice(start, end)
- Crea un nuevo arreglo copiando una porción del arreglo original desde la posición start hasta end (sin incluir end).
+
+Crea un nuevo arreglo copiando una porción del arreglo original desde la posición start hasta end (sin incluir end).
 
 ```js
 const subArray = numeros.slice(1, 3); // [20, 30]
 ```
 
 #### forEach()
- Itera sobre cada elemento del arreglo y ejecuta una función para cada uno de ellos.
+
+Itera sobre cada elemento del arreglo y ejecuta una función para cada uno de ellos.
 
 ```js
 numeros.forEach(function (numero) {
@@ -710,7 +715,8 @@ numeros.forEach(function (numero) {
 ```
 
 #### map()
- Similar a forEach, pero además de iterar sobre el arreglo, devuelve un nuevo arreglo con los resultados de la función aplicada a cada elemento.
+
+Similar a forEach, pero además de iterar sobre el arreglo, devuelve un nuevo arreglo con los resultados de la función aplicada a cada elemento.
 
 ```js
 const numerosDoblados = numeros.map(function (numero) {
@@ -720,7 +726,8 @@ console.log(numerosDoblados); // [20, 40, 60, 80, 100]
 ```
 
 #### includes()
- Devuelve true si el arreglo contiene el elemento especificado, de lo contrario, devuelve false.
+
+Devuelve true si el arreglo contiene el elemento especificado, de lo contrario, devuelve false.
 
 ```js
 const existe = numeros.includes(30);
@@ -728,7 +735,8 @@ console.log(existe); // true
 ```
 
 #### some()
- Devuelve true si al menos un elemento del arreglo cumple con una condición específica definida en una función.
+
+Devuelve true si al menos un elemento del arreglo cumple con una condición específica definida en una función.
 
 ```js
 const tieneMayorQueCincuenta = numeros.some(function (numero) {
@@ -738,7 +746,8 @@ console.log(tieneMayorQueCincuenta); // false
 ```
 
 #### findIndex()
- Devuelve el índice del primer elemento que cumple con una condición definida en una función. Si no encuentra ninguno, devuelve -1.
+
+Devuelve el índice del primer elemento que cumple con una condición definida en una función. Si no encuentra ninguno, devuelve -1.
 
 ```js
 const indice = numeros.findIndex(function (numero) {
@@ -748,7 +757,8 @@ console.log(indice); // 2
 ```
 
 #### reduce()
- Aplica una función a un acumulador y a cada valor del arreglo (de izquierda a derecha) para reducirlo a un solo valor.
+
+Aplica una función a un acumulador y a cada valor del arreglo (de izquierda a derecha) para reducirlo a un solo valor.
 
 ```js
 const sumaTotal = numeros.reduce(function (acumulador, numero) {
@@ -758,7 +768,8 @@ console.log(sumaTotal); // 150
 ```
 
 #### filter()
- Crea un nuevo arreglo con todos los elementos que cumplen con una condición definida en una función.
+
+Crea un nuevo arreglo con todos los elementos que cumplen con una condición definida en una función.
 
 ```js
 const numerosMayoresQueTreinta = numeros.filter(function (numero) {
@@ -768,6 +779,7 @@ console.log(numerosMayoresQueTreinta); // [40, 50]
 ```
 
 #### find()
+
 Devuelve el primer elemento que cumple con una condición definida en una función. Si no encuentra ninguno, devuelve undefined.
 
 ```js
@@ -778,7 +790,8 @@ console.log(primerNumeroMayorQueTreinta); // 40
 ```
 
 #### every()
- Devuelve true si todos los elementos del arreglo cumplen con una condición definida en una función.
+
+Devuelve true si todos los elementos del arreglo cumplen con una condición definida en una función.
 
 ```js
 const todosMenoresQueCien = numeros.every(function (numero) {
@@ -788,7 +801,8 @@ console.log(todosMenoresQueCien); // true
 ```
 
 #### concat()
- Combina dos o más arreglos y devuelve un nuevo arreglo.
+
+Combina dos o más arreglos y devuelve un nuevo arreglo.
 
 ```js
 const otrosNumeros = [60, 70];
@@ -797,7 +811,8 @@ console.log(combinado); // [10, 20, 30, 40, 50, 60, 70]
 ```
 
 ### ...(spread operator)
- Desempaqueta los elementos de un arreglo (o cualquier iterable) en otro contexto, como dentro de un nuevo arreglo o función.
+
+Desempaqueta los elementos de un arreglo (o cualquier iterable) en otro contexto, como dentro de un nuevo arreglo o función.
 
 ```js
 const copia = [...numeros];
@@ -1172,21 +1187,58 @@ element.classList.remove("mi-clase");
 
 Permite acceder exclusivamente a los elementos hijos de un nodo, sin incluir los espacios en blanco o nodos de texto.
 
+```js
+const lista = document.getElementById("lista");
+const hijos = lista.children;
+
+console.log(hijos); // Devuelve una HTMLCollection de <li> elementos.
+console.log(hijos[0].innerText); // Muestra: Elemento 1
+```
+
 #### childNodes
 
 Devuelve todos los nodos hijos de un elemento, incluidos los nodos de texto y espacios en blanco.
+
+```js
+const lista = document.getElementById("lista");
+const nodosHijos = lista.childNodes;
+
+console.log(nodosHijos); // Devuelve una NodeList que incluye nodos de texto y espacios en blanco.
+console.log(nodosHijos[1].nodeType); // Muestra: 3 (nodo de texto)
+```
 
 #### parentNode
 
 Accede al nodo padre de un elemento, incluyendo espacios en blanco.
 
+```js
+const parrafo = document.getElementById("parrafo");
+const nodoPadre = parrafo.parentNode;
+
+console.log(nodoPadre.id); // Muestra: contenedor
+```
+
 #### parentElement
 
 Accede exclusivamente al padre de un elemento, sin incluir los espacios en blanco, lo que lo hace más limpio que parentNode.
 
+```js
+const parrafo = document.getElementById("parrafo");
+const elementoPadre = parrafo.parentElement;
+
+console.log(elementoPadre.id); // Muestra: contenedor
+```
+
 #### nextElementSibling
 
 Devuelve el siguiente elemento hermano de un nodo, excluyendo los nodos de texto.
+
+```js
+const item1 = document.getElementById("item1");
+const siguienteHermano = item1.nextElementSibling;
+
+console.log(siguienteHermano.innerText); // Muestra: Elemento 2
+```
 
 ### Eliminar elementos del DOM
 
@@ -1222,4 +1274,255 @@ Inserta un elemento antes de otro elemento especificado en el DOM. Si el segundo
 
 ```js
 parentElement.insertBefore(newElement, referenceElement);
+```
+
+## Eventos
+
+Los eventos son acciones que ocurren en respuesta a una interacción del usuario o a otros sucesos en la aplicación web. Estos eventos pueden ser capturados y manejados por el código JavaScript para realizar acciones específicas. Para registrar un evento y asociarlo a un elemento HTML, se utiliza el método `addEventListener`, el cual se accede a través del objeto `document`.
+
+### addEventListener
+
+Este método es esencial en JavaScript para agregar funciones que se ejecutarán en respuesta a eventos específicos en un elemento del DOM. Se utiliza para vincular un manipulador de eventos a un elemento HTML y especificar qué función se ejecutará cuando ocurra el evento.
+
+```js
+element.addEventListener("click", (e) => {
+  console.log("Elemento clickeado", e);
+});
+```
+
+### Eventos del mouse
+
+Los eventos del mouse son acciones que ocurren cuando se interactúa con el mouse en la interfaz de usuario de una aplicación web. JavaScript proporciona varios eventos del mouse que pueden ser utilizados para responder a diferentes acciones del usuario.
+
+#### click
+
+Se desencadena cuando se hace clic con el botón izquierdo del mouse en un elemento.
+
+```js
+element.addEventListener("click", (e) => {
+  console.log("Elemento clickeado", e);
+});
+```
+
+#### mousedown
+
+Se desencadena cuando se presiona un botón del mouse mientras el cursor está sobre un elemento.
+
+```js
+element.addEventListener("mousedown", (e) => {
+  console.log("Botón del mouse presionado", e);
+});
+```
+
+#### dblclick
+
+Se desencadena cuando se hace doble clic con el botón izquierdo del mouse en un elemento.
+
+```js
+element.addEventListener("dblclick", (e) => {
+  console.log("Elemento doble clickeado", e);
+});
+```
+
+#### mouseup
+
+Se desencadena cuando se suelta un botón del mouse después de hacer clic en un elemento.
+
+```js
+element.addEventListener("mouseup", (e) => {
+  console.log("Botón del mouse soltado", e);
+});
+```
+
+#### mouseout
+
+Se desencadena cuando el cursor del mouse sale de un elemento.
+
+```js
+element.addEventListener("mouseout", (e) => {
+  console.log("El mouse salió del elemento", e);
+});
+```
+
+#### mouseenter
+
+Se desencadena cuando el cursor del mouse entra en un elemento.
+
+```js
+element.addEventListener("mouseenter", (e) => {
+  console.log("El mouse entró al elemento", e);
+});
+```
+
+### Eventos del teclado
+
+Los eventos del teclado se utilizan para detectar acciones del usuario en el teclado. Estos eventos permiten responder a la entrada del teclado y realizar acciones específicas en consecuencia.
+
+#### input
+
+Se desencadena cuando se cambia el valor de un elemento de entrada, como un campo de texto o un área de texto.
+
+```js
+inputElement.addEventListener("input", (e) => {
+  console.log("Entrada de texto: ", e.target.value);
+});
+```
+
+#### keydown
+
+Se desencadena cuando se presiona una tecla en el teclado.
+
+```js
+document.addEventListener("keydown", (e) => {
+  console.log("Tecla presionada: ", e.key);
+});
+```
+
+#### keyup
+
+Se desencadena cuando se suelta una tecla en el teclado después de haber sido presionada.
+
+```js
+document.addEventListener("keyup", (e) => {
+  console.log("Tecla soltada: ", e.key);
+});
+```
+
+#### blur
+
+Se desencadena cuando un elemento pierde el foco, es decir, cuando deja de ser el elemento activo para la entrada del usuario.
+
+```js
+inputElement.addEventListener("blur", (e) => {
+  console.log("El campo perdió el foco");
+});
+```
+
+#### copy
+
+Se desencadena cuando el usuario copia contenido seleccionado.
+
+```js
+document.addEventListener("copy", (e) => {
+  console.log("Contenido copiado");
+});
+```
+
+#### paste
+
+Se desencadena cuando el usuario pega contenido en un elemento seleccionado.
+
+```js
+document.addEventListener("paste", (e) => {
+  console.log("Contenido pegado");
+});
+```
+
+### Eventos de los elementos
+
+Cuando se utilizan eventos en JavaScript, es común pasar un parámetro a la función del manejador de eventos. Este parámetro, comúnmente llamado event o simplemente e, proporciona información adicional sobre el evento que ocurrió y el elemento sobre el cual se produjo el evento.
+
+#### e.type
+
+Proporciona el tipo de evento que ocurrió, como 'click', 'input', 'mouseover', etc.
+
+```js
+busqueda.addEventListener("input", (e) => {
+  console.log(e.type);
+});
+```
+
+#### e.target
+
+Hace referencia al elemento sobre el cual se produjo el evento.
+
+```js
+busqueda.addEventListener("input", (e) => {
+  console.log(e.target);
+});
+```
+
+#### e.value
+
+Específico para eventos de entrada como 'input', esta propiedad devuelve el valor actual del elemento. Por ejemplo, el texto dentro de un campo de entrada `(<input>)` o el contenido de un área de texto `(<textarea>)`.
+
+```js
+busqueda.addEventListener("input", (e) => {
+  console.log(e.value);
+});
+```
+
+#### e.preventDefault()
+
+Método que evita el comportamiento predeterminado del evento, como evitar que un enlace se siga o que se envíe un formulario.
+
+```js
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("Formulario no enviado");
+});
+```
+
+#### e.stopPropagation()
+
+Método que detiene la propagación del evento a elementos superiores o inferiores en la jerarquía del DOM.
+
+```js
+childElement.addEventListener("click", (e) => {
+  e.stopPropagation();
+  console.log("Click solo en este elemento");
+});
+```
+
+### Otros Eventos importantes
+
+#### submit
+
+Se desencadena cuando se envía un formulario. Puedes usar este evento para validar los datos ingresados por el usuario antes de enviar el formulario al servidor.
+
+```js
+formElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("Formulario enviado");
+});
+```
+
+#### scroll
+
+Se desencadena cuando un elemento con desplazamiento (scroll) se desplaza. Puedes usar este evento para implementar comportamientos dinámicos basados en la posición de desplazamiento del usuario, como cargar más contenido cuando se alcanza el final de una página.
+
+```js
+window.addEventListener("scroll", () => {
+  console.log("Scroll detectado");
+});
+```
+
+#### change
+
+Se desencadena cuando el valor de un elemento cambia, como un campo de entrada `(<input>)`, un área de texto `(<textarea>)` o un menú desplegable `(<select>)`. Es útil para capturar cambios en los elementos y responder en consecuencia.
+
+```js
+selectElement.addEventListener("change", (e) => {
+  console.log("El valor ha cambiado a: ", e.target.value);
+});
+```
+
+#### focus
+
+Se desencadena cuando un elemento recibe el foco, es decir, cuando se convierte en el elemento activo para la entrada del usuario. Puedes usar este evento para realizar acciones cuando el usuario comienza a interactuar con un elemento, como resaltar un campo de entrada o mostrar ayuda contextual.
+
+```js
+inputElement.addEventListener("focus", () => {
+  console.log("El campo ha recibido el foco");
+});
+```
+
+#### resize
+
+Se desencadena cuando el tamaño de la ventana del navegador cambia. Es útil para ajustar la interfaz de usuario en respuesta a cambios en el tamaño de la ventana, como hacer que ciertos elementos sean responsivos.
+
+```js
+window.addEventListener("resize", () => {
+  console.log("Tamaño de ventana cambiado");
+});
 ```
