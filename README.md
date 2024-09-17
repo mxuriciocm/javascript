@@ -106,7 +106,6 @@
     - [createElement](#createelement)
     - [appendChild](#appendchild)
     - [insertBefore](#insertbefore)
-- []()
 
 ## Variables
 
