@@ -1,8 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const email = {
+    email: "",
+    subject: "",
+    message: "",
+  };
+
   const emailInput = document.querySelector("#email");
-  const messageInput = document.querySelector("#mensaje");
-  const subjectInput = document.querySelector("#asunto");
-  const sendBtn = document.querySelector("");
+  const messageInput = document.querySelector("#message");
+  const subjectInput = document.querySelector("#subject");
+  const submitBtn = document.querySelector('#formulario button[type="submit"]');
 
   emailInput.addEventListener("blur", validateInput);
   messageInput.addEventListener("blur", validateInput);
@@ -14,13 +20,21 @@ document.addEventListener("DOMContentLoaded", function () {
         `El campo ${e.target.id} es obligatorio`,
         e.target.parentElement
       );
+      checkEmail()
       return;
     }
+
     if (e.target.id === "email" && !validateEmail(e.target.value)) {
       showAlert("El email no es valido", e.target.parentElement);
+      checkEmail()
       return;
     }
     clearAlert(e.target.parentElement);
+
+    // Assign values
+    email[e.target.name] = e.target.value.trim().toLowerCase();
+    console.log(email);
+    checkEmail();
   }
 
   function showAlert(message, reference) {
@@ -42,6 +56,15 @@ document.addEventListener("DOMContentLoaded", function () {
   function validateEmail(email) {
     const regex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
     const result = regex.test(email);
-    console.log(result);
+    return result;
+  }
+
+  function checkEmail() {
+    if (Object.values(email).includes("")) {
+  
+    } else {
+      submitBtn.classList.remove("opacity-50");
+      submitBtn.disabled = false;
+    }
   }
 });
