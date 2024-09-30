@@ -106,6 +106,11 @@
     - [createElement](#createelement)
     - [appendChild](#appendchild)
     - [insertBefore](#insertbefore)
+- [Local Storage](#localstorage)
+  - [setItem](#setitemkey-value)
+  - [getItem](#getitemkey)
+  - [removeItem](#removeitemkey)
+  - [clear](#clear)
 
 ## Variables
 
@@ -1525,3 +1530,60 @@ window.addEventListener("resize", () => {
   console.log("Tamaño de ventana cambiado");
 });
 ```
+
+## LocalStorage
+LocalStorage es una API integrada en JavaScript que permite almacenar datos de manera persistente en el navegador. Los datos permanecen disponibles incluso después de cerrar la pestaña o el navegador, lo que la hace útil para almacenar configuraciones, preferencias del usuario o cualquier información que deba persistir. LocalStorage almacena datos en formato de texto clave-valor, y su capacidad de almacenamiento varía entre navegadores, con un límite aproximado de 5MB.
+
+### setItem(key, value)
+El método setItem permite agregar un nuevo elemento al LocalStorage. Recibe dos parámetros: la clave (key) con la que se identificará el valor y el valor en sí mismo (value). Si el valor que deseas almacenar es un objeto o un arreglo, es necesario convertirlo en un string utilizando JSON.stringify() antes de guardarlo.  
+```js
+localStorage.setItem('nombre', 'Mauricio');
+
+const product = {
+    name: 'Monitor 24 Pulgadas',
+    price: 300
+}
+const productString = JSON.stringify(product)
+localStorage.setItem('product', productString)
+```
+
+### getItem(key)
+El método getItem permite recuperar un valor almacenado en el LocalStorage. Recibe como parámetro la clave (key) asociada al valor que deseas obtener. Si has almacenado un objeto o un arreglo, debes convertir el string de vuelta a su formato original usando JSON.parse().
+```js
+const productJSON = localStorage.getItem("product");
+console.log(JSON.parse(productJSON));
+
+const monthsJSON = localStorage.getItem("months");
+console.log(JSON.parse(monthsJSON));
+```
+
+### removeItem(key)
+Este método permite eliminar un elemento almacenado en el LocalStorage. Debes pasar la clave (key) asociada al elemento que deseas eliminar.
+```js
+localStorage.removeItem("product");
+```
+
+### clear()
+El método clear elimina todos los elementos almacenados en LocalStorage, limpiando completamente el almacenamiento local.
+```js
+localStorage.clear()
+```
+
+### JSON.stringify(objeto)
+Este método convierte un objeto o un arreglo en un string, lo cual es necesario para almacenar estructuras de datos complejas en LocalStorage.
+```js
+const product = {
+    name: 'Monitor 24 Pulgadas',
+    price: 300
+}
+const productString = JSON.stringify(product)
+localStorage.setItem('product', productString)
+```
+
+### JSON.parse(objeto)
+Este método convierte un string en un objeto o arreglo, recuperando su estructura original después de haber sido almacenado en LocalStorage.
+```js
+const monthsJSON = localStorage.getItem("months");
+console.log(JSON.parse(monthsJSON));
+```
+
