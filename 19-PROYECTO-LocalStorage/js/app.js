@@ -4,6 +4,8 @@ let tweets = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", addTweet);
+  tweets = JSON.parse(localStorage.getItem("tweets")) || [];
+  addTweetToHTML();
 });
 
 function addTweet(e) {
@@ -41,15 +43,33 @@ function addTweetToHTML() {
   clearHTML();
   if (tweets.length > 0) {
     tweets.forEach((tweet) => {
+      const btnDelete = document.createElement("a");
       const li = document.createElement("li");
+      btnDelete.classList.add("borrar-tweet");
+      btnDelete.textContent = "X";
+      btnDelete.onclick = () => {
+        deleteTweet(tweet.id);
+      };
       li.textContent = tweet.tweet;
       listTweets.appendChild(li);
+      li.appendChild(btnDelete);
     });
   }
+  addTweetToStorage();
 }
 
 function clearHTML() {
   while (listTweets.firstChild) {
     listTweets.removeChild(listTweets.firstChild);
   }
+}
+
+function addTweetToStorage() {
+  localStorage.setItem("tweets", JSON.stringify(tweets));
+}
+
+function deleteTweet(id) {
+  tweets = tweets.filter((tweet) => tweet.id !== id);
+
+  addTweetToHTML();
 }
