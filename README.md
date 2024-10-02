@@ -1532,23 +1532,28 @@ window.addEventListener("resize", () => {
 ```
 
 ## LocalStorage
+
 LocalStorage es una API integrada en JavaScript que permite almacenar datos de manera persistente en el navegador. Los datos permanecen disponibles incluso después de cerrar la pestaña o el navegador, lo que la hace útil para almacenar configuraciones, preferencias del usuario o cualquier información que deba persistir. LocalStorage almacena datos en formato de texto clave-valor, y su capacidad de almacenamiento varía entre navegadores, con un límite aproximado de 5MB.
 
 ### setItem(key, value)
-El método setItem permite agregar un nuevo elemento al LocalStorage. Recibe dos parámetros: la clave (key) con la que se identificará el valor y el valor en sí mismo (value). Si el valor que deseas almacenar es un objeto o un arreglo, es necesario convertirlo en un string utilizando JSON.stringify() antes de guardarlo.  
+
+El método setItem permite agregar un nuevo elemento al LocalStorage. Recibe dos parámetros: la clave (key) con la que se identificará el valor y el valor en sí mismo (value). Si el valor que deseas almacenar es un objeto o un arreglo, es necesario convertirlo en un string utilizando JSON.stringify() antes de guardarlo.
+
 ```js
-localStorage.setItem('nombre', 'Mauricio');
+localStorage.setItem("nombre", "Mauricio");
 
 const product = {
-    name: 'Monitor 24 Pulgadas',
-    price: 300
-}
-const productString = JSON.stringify(product)
-localStorage.setItem('product', productString)
+  name: "Monitor 24 Pulgadas",
+  price: 300,
+};
+const productString = JSON.stringify(product);
+localStorage.setItem("product", productString);
 ```
 
 ### getItem(key)
+
 El método getItem permite recuperar un valor almacenado en el LocalStorage. Recibe como parámetro la clave (key) asociada al valor que deseas obtener. Si has almacenado un objeto o un arreglo, debes convertir el string de vuelta a su formato original usando JSON.parse().
+
 ```js
 const productJSON = localStorage.getItem("product");
 console.log(JSON.parse(productJSON));
@@ -1558,32 +1563,106 @@ console.log(JSON.parse(monthsJSON));
 ```
 
 ### removeItem(key)
+
 Este método permite eliminar un elemento almacenado en el LocalStorage. Debes pasar la clave (key) asociada al elemento que deseas eliminar.
+
 ```js
 localStorage.removeItem("product");
 ```
 
 ### clear()
+
 El método clear elimina todos los elementos almacenados en LocalStorage, limpiando completamente el almacenamiento local.
+
 ```js
-localStorage.clear()
+localStorage.clear();
 ```
 
 ### JSON.stringify(objeto)
+
 Este método convierte un objeto o un arreglo en un string, lo cual es necesario para almacenar estructuras de datos complejas en LocalStorage.
+
 ```js
 const product = {
-    name: 'Monitor 24 Pulgadas',
-    price: 300
-}
-const productString = JSON.stringify(product)
-localStorage.setItem('product', productString)
+  name: "Monitor 24 Pulgadas",
+  price: 300,
+};
+const productString = JSON.stringify(product);
+localStorage.setItem("product", productString);
 ```
 
 ### JSON.parse(objeto)
+
 Este método convierte un string en un objeto o arreglo, recuperando su estructura original después de haber sido almacenado en LocalStorage.
+
 ```js
 const monthsJSON = localStorage.getItem("months");
 console.log(JSON.parse(monthsJSON));
 ```
+
+## Fechas
+
+Trabajar con fechas en JavaScript puede ser esencial para muchas aplicaciones, desde la gestión de eventos hasta el registro de tiempos. JavaScript proporciona el objeto `Date` para manejar fechas y horas.
+
+### Creación de Fechas
+
+Puedes crear una nueva fecha utilizando el constructor `Date`. Aquí hay algunas formas comunes de crear fechas:
+
+```js
+// Fecha y hora actuales
+const now = new Date();
+console.log(now);
+
+// Fecha específica (año, mes, día, hora, minuto, segundo, milisegundo)
+const specificDate = new Date(2023, 9, 5, 10, 30, 0); // Meses en JavaScript son 0-indexados (0 = Enero, 9 = Octubre)
+console.log(specificDate);
+
+// Fecha a partir de una cadena de texto
+const dateFromString = new Date("2023-10-05T10:30:00");
+console.log(dateFromString);
+
+// Fecha a partir de un timestamp (milisegundos desde el 1 de enero de 1970)
+const dateFromTimestamp = new Date(1696492200000);
+console.log(dateFromTimestamp);
+```
+
+### Métodos Comunes del Objeto
+
+El objeto Date proporciona varios métodos para obtener y establecer partes de la fecha:
+
+```js
+const date = new Date();
+
+// Obtener partes de la fecha
+console.log(date.getFullYear()); // Año
+console.log(date.getMonth()); // Mes (0-11)
+console.log(date.getDate()); // Día del mes (1-31)
+console.log(date.getDay()); // Día de la semana (0-6, 0 = Domingo)
+console.log(date.getHours()); // Hora (0-23)
+console.log(date.getMinutes()); // Minutos (0-59)
+console.log(date.getSeconds()); // Segundos (0-59)
+console.log(date.getMilliseconds()); // Milisegundos (0-999)
+
+// Establecer partes de la fecha
+date.setFullYear(2024);
+date.setMonth(11); // Diciembre
+date.setDate(25);
+date.setHours(12);
+date.setMinutes(0);
+date.setSeconds(0);
+console.log(date);
+```
+
+### Formateo de Fechas
+
+Para formatear fechas de manera más legible, puedes usar bibliotecas como moment.js
+
+```js
+const dayNow1 = new Date();
+moment.locale("es");
+console.log(moment().format("MMM Do YYY h:mm:ss a"));
+console.log(moment().format("LLLL", dayNow1));
+console.log(moment().add(3, "days").calendar());
+```
+
 
