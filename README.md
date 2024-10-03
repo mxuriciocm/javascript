@@ -1665,4 +1665,79 @@ console.log(moment().format("LLLL", dayNow1));
 console.log(moment().add(3, "days").calendar());
 ```
 
+## Prototypes 
 
+En JavaScript, los prototipos son una forma de herencia que permite a los objetos compartir propiedades y métodos. Cada objeto en JavaScript tiene un prototipo, que es otro objeto del cual hereda propiedades y métodos.
+
+### Creación de Prototipos
+
+Puedes crear prototipos de varias maneras. Aquí hay algunas formas comunes de hacerlo:
+
+#### Funciones Constructoras
+
+Las funciones constructoras son una forma común de crear objetos y establecer su prototipo.
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.greet = function() {
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+
+const john = new Person('John', 30);
+john.greet(); // Hello, my name is John and I am 30 years old.
+```
+
+#### Sintaxis de Clases
+
+La sintaxis de clases en JavaScript es una forma más moderna y clara de trabajar con prototipos.
+
+```js
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+const jane = new Person('Jane', 25);
+jane.greet(); // Hello, my name is Jane and I am 25 years old.
+```
+
+### Herencia Prototipica
+
+La herencia prototípica permite que un objeto herede propiedades y métodos de otro objeto.
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.greet = function() {
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+
+function Employee(name, age, jobTitle) {
+  Person.call(this, name, age);
+  this.jobTitle = jobTitle;
+}
+
+Employee.prototype = Object.create(Person.prototype);
+Employee.prototype.constructor = Employee;
+
+Employee.prototype.work = function() {
+  console.log(`${this.name} is working as a ${this.jobTitle}.`);
+};
+
+const bob = new Employee('Bob', 40, 'Developer');
+bob.greet(); // Hello, my name is Bob and I am 40 years old.
+bob.work(); // Bob is working as a Developer.
+```
