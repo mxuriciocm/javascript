@@ -1665,7 +1665,7 @@ console.log(moment().format("LLLL", dayNow1));
 console.log(moment().add(3, "days").calendar());
 ```
 
-## Prototypes 
+## Prototypes
 
 En JavaScript, los prototipos son una forma de herencia que permite a los objetos compartir propiedades y métodos. Cada objeto en JavaScript tiene un prototipo, que es otro objeto del cual hereda propiedades y métodos.
 
@@ -1683,11 +1683,11 @@ function Person(name, age) {
   this.age = age;
 }
 
-Person.prototype.greet = function() {
+Person.prototype.greet = function () {
   console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
 };
 
-const john = new Person('John', 30);
+const john = new Person("John", 30);
 john.greet(); // Hello, my name is John and I am 30 years old.
 ```
 
@@ -1703,11 +1703,13 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
   }
 }
 
-const jane = new Person('Jane', 25);
+const jane = new Person("Jane", 25);
 jane.greet(); // Hello, my name is Jane and I am 25 years old.
 ```
 
@@ -1721,7 +1723,7 @@ function Person(name, age) {
   this.age = age;
 }
 
-Person.prototype.greet = function() {
+Person.prototype.greet = function () {
   console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
 };
 
@@ -1733,11 +1735,23 @@ function Employee(name, age, jobTitle) {
 Employee.prototype = Object.create(Person.prototype);
 Employee.prototype.constructor = Employee;
 
-Employee.prototype.work = function() {
+Employee.prototype.work = function () {
   console.log(`${this.name} is working as a ${this.jobTitle}.`);
 };
 
-const bob = new Employee('Bob', 40, 'Developer');
+const bob = new Employee("Bob", 40, "Developer");
 bob.greet(); // Hello, my name is Bob and I am 40 years old.
 bob.work(); // Bob is working as a Developer.
+```
+
+### Callback
+
+Un callback es una función que se pasa a otra función como argumento y se ejecuta luego de completarse alguna acción.
+
+```js
+let names = [];
+const callback = (name) => console.log(name);
+names.map(callback);
+
+names.map((name) => console.log(name));
 ```
