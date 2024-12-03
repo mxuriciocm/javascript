@@ -2,17 +2,25 @@ const categoryInput = document.querySelector("#categorias");
 const result = document.querySelector("#resultado");
 const modal = new bootstrap.Modal("#modal", {});
 
-window.addEventListener("load", () => {
-  categoryInput.addEventListener("change", fetchMealsByCategories);
+// Favoritos
+const favoritesResult = document.querySelector(".favoritos");
 
-  const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      showCategories(data.categories);
-      console.log(data);
-    })
-    .catch((e) => console.log(e));
+window.addEventListener("load", () => {
+  if (categoryInput) {
+    categoryInput.addEventListener("change", fetchMealsByCategories);
+    const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        showCategories(data.categories);
+        console.log(data);
+      })
+      .catch((e) => console.log(e));
+  }
+
+  if (favoritesResult) {
+    getFavorites();
+  }
 });
 
 function showCategories(array) {
@@ -135,11 +143,15 @@ function showRecipeInfoById(info) {
   btnFavorite.onclick = function () {
     if (exitsFavorite(idMeal)) {
       deleteFavorite(idMeal);
+      clearHTML(favoritesResult);
+      getFavorites();
       btnFavorite.textContent = "Guardar Favorito";
+      showToast("Eliminado Correctamente");
       return;
     }
     addFavorite({ id: idMeal, title: strMeal, img: strMealThumb });
     btnFavorite.textContent = "Eliminar Favorito";
+    showToast("Agregado Correctamente");
   };
 
   const btnCloseModal = document.createElement("button");
@@ -172,8 +184,68 @@ function deleteFavorite(id) {
   localStorage.setItem("favorites", JSON.stringify(newFavorites));
 }
 
+function showToast(message) {
+  const toastDiv = document.querySelector("#toast");
+  const toastBody = document.querySelector(".toast-body");
+  const toast = new bootstrap.Toast(toastDiv);
+  toastBody.textContent = message;
+  toast.show();
+}
+
 function clearHTML(select) {
   while (select.firstChild) {
     select.removeChild(select.firstChild);
   }
+}
+
+// Favoritos
+
+function getFavorites() {
+  const listFavorites = JSON.parse(localStorage.getItem("favorites")) ?? [];
+  if (listFavorites.length) {
+    listFavorites.forEach((favorite) => {
+      const { id, img, title } = favorite;
+      const favoriteContainer = document.createElement("div");
+      favoriteContainer.classList.add("col-md-4");
+
+      const favoriteCard = document.createElement("div");
+      favoriteCard.classList.add("card", "mb-4");
+
+      const favoriteImage = document.createElement("img");
+      favoriteImage.classList.add("card-img-top");
+      favoriteImage.alt = `Recipe image ${title}`;
+      favoriteImage.src = `${img}`;
+
+      const favoriteBody = document.createElement("div");
+      favoriteBody.classList.add("card-body");
+
+      const favoriteTitle = document.createElement("h3");
+      favoriteTitle.classList.add("card-title", "mb-3");
+      favoriteTitle.textContent = `${title}`;
+
+      const favoriteButton = document.createElement("button");
+      favoriteButton.classList.add("btn", "btn-danger", "w-100", "btn-recipe");
+      favoriteButton.textContent = "Show recipe";
+      favoriteButton.dataset.bsTarget = "#modal";
+      favoriteButton.dataset.bsToggle = "modal";
+      favoriteButton.onclick = function () {
+        fetchRecipeInfoById(id);
+      };
+
+      favoriteBody.appendChild(favoriteTitle);
+      favoriteBody.appendChild(favoriteButton);
+
+      favoriteCard.appendChild(favoriteImage);
+      favoriteCard.appendChild(favoriteBody);
+
+      favoriteContainer.appendChild(favoriteCard);
+
+      favoritesResult.appendChild(favoriteContainer);
+    });
+    return;
+  }
+  const noFavorites = document.createElement("p");
+  noFavorites.textContent = "No hay favorites aún";
+  noFavorites.classList.add("fs-4", "text-center", "font-bold", "mt-5");
+  favoritesResult.appendChild(noFavorites);
 }
