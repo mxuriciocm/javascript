@@ -96,7 +96,7 @@ function fetchRecipeInfoById(id) {
 
 function showRecipeInfoById(info) {
   console.log(info);
-  const { strMeal, strCategory, strInstructions, strMealThumb } = info;
+  const { strMeal, strCategory, strInstructions, strMealThumb, idMeal } = info;
   const modalTitle = document.querySelector(".modal .modal-title");
   const modalBody = document.querySelector(".modal .modal-body");
   modalTitle.textContent = strMeal;
@@ -129,13 +129,17 @@ function showRecipeInfoById(info) {
 
   const btnFavorite = document.createElement("button");
   btnFavorite.classList.add("btn", "btn-danger", "col");
-  btnFavorite.textContent = "Guardar Favorito";
+  btnFavorite.textContent = exitsFavorite(idMeal)
+    ? "Eliminar Favorito"
+    : "Guardar Favorito";
   btnFavorite.onclick = function () {
-    addFavorite({
-      id: idMeal,
-      title: strMeal,
-      img: strMealThumb,
-    });
+    if (exitsFavorite(idMeal)) {
+      deleteFavorite(idMeal);
+      btnFavorite.textContent = "Guardar Favorito";
+      return;
+    }
+    addFavorite({ id: idMeal, title: strMeal, img: strMealThumb });
+    btnFavorite.textContent = "Eliminar Favorito";
   };
 
   const btnCloseModal = document.createElement("button");
@@ -149,6 +153,23 @@ function showRecipeInfoById(info) {
   modalFooter.appendChild(btnCloseModal);
 
   modal.show();
+}
+
+function addFavorite(object) {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) ?? [];
+  const recipe = JSON.stringify([...favorites, object]);
+  localStorage.setItem("favorites", recipe);
+}
+
+function exitsFavorite(id) {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) ?? [];
+  return favorites.some((favorite) => favorite.id === id);
+}
+
+function deleteFavorite(id) {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) ?? [];
+  const newFavorites = favorites.filter((favorite) => favorite.id !== id);
+  localStorage.setItem("favorites", JSON.stringify(newFavorites));
 }
 
 function clearHTML(select) {
